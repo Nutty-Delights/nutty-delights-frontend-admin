@@ -6,6 +6,9 @@ import AllInboxIcon from '@mui/icons-material/AllInbox';
 import SensorsIcon from '@mui/icons-material/Sensors';
 import OrderIcon from '@mui/icons-material/ShoppingBag';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const actions = [
@@ -35,31 +38,51 @@ function App() {
       "icon": <SensorsIcon sx={{ color: 'orange', fontSize: '20px' }} />
     },
   ]
+
+  const location = useLocation().pathname;
   return (
-    <div className='admin-panel' style={{ padding: '20px' }}>
-      <Typography sx={{ fontSize: '24px', color: 'orange', fontWeight: 'bold' }}>Admin Panel </Typography>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <div style={{ background: '#000000c5' }}>
+      <div className='admin-panel' style={{ padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Typography sx={{ fontSize: '24px', color: 'orange', fontWeight: 'bold' }}>Nutty Delights : Admin Panel </Typography>
+        <Typography sx={{ fontSize: '24px', color: 'orange', fontWeight: 'bold' }}>{location === '/' ? "Home" : location}</Typography>
 
-        <div className='actions' style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-          {
-            actions.map((ele, i) => (
-              <NavLink style={{ paddingBlock: '10px', marginRight: '10px', color: 'orange' }} key={i} to={ele.link}>
-                <Paper sx={{ height: '100px', width: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className='actions' style={{ display: 'flex', flexWrap: 'wrap', gap: "10px" }}>
+
+            {
+              actions.map((ele, i) => (
+                <NavLink style={{ textDecoration: 'none', paddingBlock: '10px', marginRight: '10px', color: 'orange', display: 'flex', alignItems: 'center' }} key={i} to={ele.link}>
+                  {/* <Paper sx={{ height: '60px', width: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}> */}
                   {ele.icon}
-                  <Typography sx={{ fontSize: '18px', color: 'orange', marginLeft: '5px' }} >{ele.name}</Typography>
-                </Paper>
-              </NavLink>
-            ))
+                  <Typography sx={{ fontWeight: 'bold', fontSize: '18px', color: 'orange', marginLeft: '5px' }} >{ele.name}</Typography>
+                  {/* </Paper> */}
+                </NavLink>
+              ))
 
-          }
+            }
 
 
+          </div>
         </div>
-        <Typography sx={{ fontSize: '24px', color: 'orange', fontWeight: 'bold' }}>{useLocation().pathname}</Typography>
+
       </div>
       <Divider></Divider>
-      <Outlet></Outlet>
+      <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <Outlet></Outlet>
+      </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
     </div>
   )
 }
