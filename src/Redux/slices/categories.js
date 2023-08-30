@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { URLs } from "../../services/base_urls/constant";
 
-import CategoryDataService from '../../services/categories.service';
+import CategoryDataService from "../../../src/services/categories.service";
 
 
 const initialState = {
