@@ -1,8 +1,5 @@
 import http from '../http-common';
 import { URLs } from './base_urls/constant';
-//reference
-// https://www.bezkoder.com/redux-toolkit-example-crud/
-
 class OrderDataService {
 
     orderUrl = URLs.order;

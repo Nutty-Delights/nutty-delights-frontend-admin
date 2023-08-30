@@ -316,7 +316,7 @@ const Orders = () => {
         fetchOrders();
         setDate(new window.Date().toLocaleTimeString());
 
-    }, 1000 * 60 * 3);
+    }, 1000 * 60 * 30);
 
     function useInterval(callback, delay) {
         const savedCallback = useRef();
@@ -335,7 +335,18 @@ const Orders = () => {
         }, [delay]);
     }
     return (
-        <Box>
+        <Box sx={{
+            "&::-webkit-scrollbar": {
+                width: 20
+            },
+            "&::-webkit-scrollbar-track": {
+                backgroundColor: "orange"
+            },
+            "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "red",
+                borderRadius: 2
+            }
+        }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <h5 style={{ marginBlock: '0px', marginBottom: '15px', color: 'white' }}>{"Real Time Order Tracking"}</h5>
                 <h5 style={{ marginBlock: '0px', marginBottom: '15px', color: 'white' }}>{"Last Updated"} {date}</h5>
@@ -354,7 +365,8 @@ const Orders = () => {
                         suppressRowClickSelection
                         suppressCellFocus
                         suppressLoadingOverlay={isLoading}
-
+                        pagination={true}
+                        paginationPageSize={10}
                         animateRows={true} // Optional - set to 'true' to have rows animate when sorted
                         rowSelection='multiple' // Options - allows click selection of rows
 

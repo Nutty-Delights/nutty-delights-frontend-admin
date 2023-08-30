@@ -27,11 +27,11 @@ function App() {
       "link": 'products',
       "icon": <AllInboxIcon sx={{ color: 'orange', fontSize: '20px' }} />
     },
-    {
-      "name": "Payments",
-      "link": 'payments',
-      "icon": <CurrencyRupeeIcon sx={{ color: 'orange', fontSize: '20px' }} />
-    },
+    // {
+    //   "name": "Payments",
+    //   "link": 'payments',
+    //   "icon": <CurrencyRupeeIcon sx={{ color: 'orange', fontSize: '20px' }} />
+    // },
     {
       "name": "APIs",
       "link": 'apis',
@@ -67,8 +67,8 @@ function App() {
         </div>
 
       </div>
-      <Divider></Divider>
-      <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+      {/* <Divider></Divider> */}
+      <div style={{ paddingInline: '30px', paddingBlock: '10px', display: 'flex', flexDirection: 'column', flex: 1 }}>
         <Outlet></Outlet>
       </div>
       <ToastContainer

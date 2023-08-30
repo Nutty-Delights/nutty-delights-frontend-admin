@@ -1,11 +1,10 @@
 
 export const URLs = {
-    categories: 'categories',
-    products: 'product',
+    categories: 'admin/categories',
+    products: 'admin/product',
     users: 'auth',
     cart: 'cart',
     order: '/admin/orders',
     payment: 'rzp_payment'
 
 }
-
