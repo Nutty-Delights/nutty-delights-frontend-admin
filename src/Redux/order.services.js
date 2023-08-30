@@ -1,5 +1,5 @@
 import http from '../http-common';
-import { URLs } from './base_urls/constant';
+import { URLs } from "./constant";
 class OrderDataService {
 
     orderUrl = URLs.order;

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { URLs } from "../../services/base_urls/constant";
+import { URLs } from "../constant";
 import { toast } from "react-toastify";
-import OrderDataService from "../../services/order.service";
+import OrderDataService from "../order.services";
 
 
 

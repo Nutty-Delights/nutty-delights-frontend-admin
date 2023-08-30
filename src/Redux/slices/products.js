@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { URLs } from "../../services/base_urls/constant";
+import { URLs } from "../constant";
 import { toast } from "react-toastify";
-import ProductDataService from '../../services/product.service'
+import ProductDataService from '../product.service'
 
 const initialState = {
     currentProduct: {},
