@@ -154,12 +154,15 @@ const Orders = () => {
 
     // Each Column Definition results in one Column.
     const [columnDefs, setColumnDefs] = useState([
-        { field: 'orderId', filter: true, 'width': 100, 'suppressSizeToFit': true },
+        { field: 'orderId', filter: true, 'width': 100, 'suppressSizeToFit': true, pinned: 'left' },
         {
             field: 'user',
+            floatingFilter: true,
+
             filter: true,
             'width': 100,
             'suppressSizeToFit': true,
+
 
             // cellRenderer: CellRenderer,
             children: [
@@ -167,7 +170,9 @@ const Orders = () => {
                     field: 'Name',
                     'width': 100,
                     'suppressSizeToFit': true,
-                    cellRenderer: NameCellRenderer
+                    cellRenderer: NameCellRenderer,
+                    pinned: 'left',
+
                 },
                 {
                     field: 'Mobile',
@@ -225,7 +230,8 @@ const Orders = () => {
 
         },
         {
-            field: 'totalPrice', 'width': 100, 'suppressSizeToFit': true, cellStyle: () => {
+            field: 'totalPrice', 'width': 100, 'suppressSizeToFit': true, floatingFilter: true
+            , cellStyle: () => {
                 return { color: '#8dff12', padding: '20px', fontWeight: 'bold' }
             }
         },
@@ -279,6 +285,7 @@ const Orders = () => {
         resizable: true,
         wrapText: true,
         autoHeight: true,
+        // floatingFilter: true,
         // maxWidth: '200px'
     }));
 
@@ -316,7 +323,7 @@ const Orders = () => {
         fetchOrders();
         setDate(new window.Date().toLocaleTimeString());
 
-    }, 1000 * 60 * 30);
+    }, 1000 * 60 * 2);
 
     function useInterval(callback, delay) {
         const savedCallback = useRef();
