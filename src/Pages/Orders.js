@@ -323,7 +323,7 @@ const Orders = () => {
         fetchOrders();
         setDate(new window.Date().toLocaleTimeString());
 
-    }, 1000 * 60 * 8);
+    }, 1000 * 60 * 5);
 
     function useInterval(callback, delay) {
         const savedCallback = useRef();
